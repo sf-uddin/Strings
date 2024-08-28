@@ -1,0 +1,55 @@
+using System;
+
+//Time- O(n2)
+//Space -O(n)
+public class Program {
+	public static bool IsPalindrome(string str)
+    {
+		string reversedstring= "";
+        for(int idx=str.Length-1; idx>=0;idx--)
+        {
+            reversedstring += str[idx];
+        }      
+		return str.Equals(reversedstring);
+	}
+}
+------------------------------------------------
+using System;
+using System.Text;
+//Time- O(n)
+//Space -O(n)
+public class Program {
+	public static bool IsPalindrome(string str) 
+    {
+	    StringBuilder reversedstring = new 	StringBuilder();
+        for(int idx=str.Length-1; idx>=0;idx--)
+        {
+            reversedstring.Append(str[idx]);
+        }  
+		 return str.Equals(reversedstring.ToString());
+	}
+}
+
+---------------------------------------------------
+
+using System;
+
+//Time- O(n)
+//Space -O(1)
+public class Program {
+	public static bool IsPalindrome(string str) 
+    {
+		int leftidx=0;
+        int rightidx= str.Length-1;
+        while(leftidx < rightidx)
+        {
+            if(str[leftidx] != str[rightidx])
+            {
+                return false;
+            }
+            leftidx++;
+            rightidx--;
+        }
+		return true;
+	}
+}
