@@ -1,0 +1,25 @@
+using System;
+
+public class Program 
+{
+//Time O(n)
+//Space O(n)
+	public static string CaesarCypherEncryptor(string str, int key) 
+    {
+		    char[] newletters= new char[str.Length];
+        int newkey= key % 26; 
+        for(int i=0 ; i<str.Length; i++)
+        {
+            newletters[i]= getnewletter(str[i],newkey);
+        }
+		return new string(newletters);
+	}
+    
+public static char getnewletter(char letter, int key) 
+    {
+       int newlettercode= letter + key; 
+    
+		return newlettercode <= 122 ? (char)newlettercode : (char)(96 +newlettercode %122);
+	}
+    
+}
