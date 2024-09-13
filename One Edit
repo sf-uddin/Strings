@@ -1,0 +1,51 @@
+using System;
+
+
+public class Program {
+
+	public bool OneEdit(string stringOne, string stringTwo) 
+    {
+		int lengthone= stringOne.Length;
+        int lengthtwo= stringTwo.Length;
+        if(Math.Abs(lengthone-lengthtwo) > 1)
+        {
+            return false;
+        }
+        bool madeEdit= false;
+        int idxone=0;
+        int idxtwo=0;
+        while(idxone<stringOne.Length && idxtwo<stringTwo.Length)
+        {
+            if(stringOne[idxone] != stringTwo[idxtwo])
+            {
+                if(madeEdit)
+                {
+                   return false; 
+                }
+               madeEdit= true;
+                     if(lengthone>lengthtwo)   
+                     {
+                         idxone++;
+                     }
+                    else if(lengthtwo>lengthone)   
+                     {
+                         idxtwo++;
+                     } 
+                      else
+                      {
+                          idxone++;
+                          idxtwo++;
+                      }
+            }
+                   else
+                      {
+                          idxone++;
+                          idxtwo++;
+                      }
+            
+        }
+        
+		return true;
+	}
+}
+
