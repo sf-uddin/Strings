@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System;
+using System.Text;
+
+
+public class Program {
+	public List<List<string> > Semordnilap(string[] words) 
+    {
+		HashSet<string> wordset = new HashSet<string>(words);
+        List<List<string>> semordilappairs = new List<List<string>>();
+        foreach (var word in words)
+        {
+            char[] chars = word.ToCharArray();
+            Array.Reverse(chars);
+            string reverse = new string(chars);
+            if(wordset.Contains(reverse) && !reverse.Equals(word))
+            {
+                List<string> semordilappair= new List<string> {word,reverse};
+                semordilappairs.Add(semordilappair);
+                wordset.Remove(word);
+                wordset.Remove(reverse);
+            }
+        }
+
+        
+		return semordilappairs;
+	}
+}
+
