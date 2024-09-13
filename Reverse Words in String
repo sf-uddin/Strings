@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+
+public class Program {
+
+	public string ReverseWordsInString(string str) 
+    {
+	 List<string> words =new List<string> ();
+     int startofword =0;
+     for(int idx=0;idx<str.Length;idx++)
+     {
+         char character= str[idx];
+         if(character== ' ')
+         {
+             words.Add(str.Substring(startofword, idx-startofword));
+             startofword=idx;
+         }
+         else if (str[startofword] == ' ')
+         {
+             words.Add(" ");
+             startofword=idx;
+         }
+     }
+        words.Add(str.Substring(startofword));
+        words.Reverse();
+		return String.Join("",words);
+	}
+}
+
