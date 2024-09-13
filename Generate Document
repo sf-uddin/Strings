@@ -1,0 +1,35 @@
+using System;
+
+
+public class Program {
+
+	public bool GenerateDocument(string characters, string document) 
+    {
+        for(int idx=0; idx<document.Length; idx++)
+        {
+            char character = document[idx];
+            int documentfrequency= countfrequency(character, document);
+            int characterfrequency= countfrequency(character, characters);
+
+            if(documentfrequency>characterfrequency)
+            {
+               return  false;
+            }    
+        }
+		return true;
+	}
+
+    public int countfrequency(char character, string target)
+    {
+        int frequency=0;
+         for(int idx=0; idx<target.Length; idx++)
+         {
+             char c = target[idx];
+             if(c== character)
+             {
+                frequency +=1; 
+             }
+         }
+        return frequency;
+    }
+}
