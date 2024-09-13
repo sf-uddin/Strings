@@ -1,0 +1,25 @@
+using System;
+using System.Text;
+
+public class Program {
+	public string RunLengthEncoding(string str) 
+    {
+		StringBuilder encoded = new StringBuilder();
+        int currentrunlength=1;
+        for(int i=1; i<str.Length;i++)
+        {
+           char current= str[i];
+           char previous= str[i-1];
+         if((current !=previous) || (currentrunlength==9))
+         {
+             encoded.Append(currentrunlength.ToString());
+             encoded.Append(previous);
+             currentrunlength=0;
+         }
+         currentrunlength +=1;    
+        }
+            encoded.Append(currentrunlength.ToString());
+            encoded.Append(str[str.Length-1]);
+		    return encoded.ToString();
+	}
+}
